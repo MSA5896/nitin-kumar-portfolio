@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+<defs>
+<pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8edf3" stroke-opacity=".05"/></pattern>
+<radialGradient id="glow" cx="50%" cy="0%" r="75%"><stop offset="0" stop-color="#5b9dff" stop-opacity=".2"/><stop offset="1" stop-color="#5b9dff" stop-opacity="0"/></radialGradient>
+<marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5b9dff"/></marker>
+<filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1600" height="900" fill="#0b0f14"/><rect width="1600" height="900" fill="url(#g)"/><rect width="1600" height="900" fill="url(#glow)"/>
+<!-- Node graph -->
+<g font-family="Consolas, monospace" font-size="18" text-anchor="middle">
+  <g fill="none" stroke="#5b9dff" stroke-width="2.5" marker-end="url(#arw)">
+    <path d="M330 300C420 300 440 420 520 435"/>
+    <path d="M330 600C420 600 440 480 520 465"/>
+    <path d="M760 450H862"/>
+    <path d="M1080 450C1120 450 1130 420 1160 410"/>
+    <path d="M980 500C980 600 760 640 640 620C560 606 470 610 340 640" stroke="#a78bfa" stroke-dasharray="8 8"/>
+  </g>
+  <g>
+    <rect x="110" y="260" width="220" height="80" rx="40" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/><text x="220" y="306" fill="#e8edf3">/camera</text>
+    <rect x="110" y="560" width="220" height="80" rx="40" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/><text x="220" y="606" fill="#e8edf3">/sensors</text>
+    <rect x="520" y="400" width="240" height="100" rx="50" fill="#5b9dff" fill-opacity=".14" stroke="#5b9dff" stroke-width="2.5"/><text x="640" y="457" fill="#e8edf3">/planner</text>
+    <rect x="870" y="400" width="210" height="100" rx="50" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/><text x="975" y="457" fill="#e8edf3">/controller</text>
+  </g>
+  <g font-size="15">
+    <rect x="370" y="330" width="96" height="32" rx="16" fill="#0b0f14" stroke="#4cc38a"/><text x="418" y="352" fill="#4cc38a">/image</text>
+    <rect x="370" y="538" width="96" height="32" rx="16" fill="#0b0f14" stroke="#4cc38a"/><text x="418" y="560" fill="#4cc38a">/scan</text>
+    <rect x="768" y="406" width="96" height="32" rx="16" fill="#0b0f14" stroke="#4cc38a"/><text x="816" y="428" fill="#4cc38a">/cmd</text>
+    <rect x="560" y="616" width="170" height="32" rx="16" fill="#0b0f14" stroke="#a78bfa"/><text x="645" y="638" fill="#a78bfa">/joint_states</text>
+  </g>
+  <text x="640" y="250" font-size="16" fill="#8a95a4" letter-spacing="3">NODES · TOPICS · SERVICES · ACTIONS</text>
+</g>
+<!-- Robot arm -->
+<g stroke-linecap="round" stroke-linejoin="round">
+  <rect x="1180" y="660" width="220" height="40" rx="10" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/>
+  <rect x="1250" y="600" width="80" height="64" rx="10" fill="#222c38" stroke="#2f3b4a" stroke-width="2"/>
+  <path d="M1290 600L1230 420" stroke="#a6b0bd" stroke-width="34"/>
+  <path d="M1230 420L1370 330" stroke="#a6b0bd" stroke-width="28"/>
+  <circle cx="1290" cy="600" r="24" fill="#0b0f14" stroke="#5b9dff" stroke-width="5"/>
+  <circle cx="1230" cy="420" r="22" fill="#0b0f14" stroke="#5b9dff" stroke-width="5"/>
+  <circle cx="1370" cy="330" r="18" fill="#0b0f14" stroke="#5b9dff" stroke-width="5"/>
+  <path d="M1384 318L1418 290M1388 336L1428 330" stroke="#e8edf3" stroke-width="10"/>
+  <circle cx="1290" cy="600" r="6" fill="#5b9dff"/><circle cx="1230" cy="420" r="6" fill="#5b9dff"/><circle cx="1370" cy="330" r="5" fill="#5b9dff"/>
+</g>
+</svg>

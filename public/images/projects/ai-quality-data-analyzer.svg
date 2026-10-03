@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+<defs>
+<pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8edf3" stroke-opacity=".05"/></pattern>
+<radialGradient id="glow" cx="50%" cy="0%" r="75%"><stop offset="0" stop-color="#5b9dff" stop-opacity=".2"/><stop offset="1" stop-color="#5b9dff" stop-opacity="0"/></radialGradient>
+<marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5b9dff"/></marker>
+<filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1600" height="900" fill="#0b0f14"/><rect width="1600" height="900" fill="url(#g)"/><rect width="1600" height="900" fill="url(#glow)"/>
+<!-- Spreadsheet -->
+<g>
+  <rect x="110" y="160" width="450" height="580" rx="20" fill="#111720" stroke="#2f3b4a" stroke-width="2"/>
+  <rect x="110" y="160" width="450" height="58" rx="20" fill="#17202b"/><rect x="110" y="198" width="450" height="20" fill="#17202b"/>
+  <text x="140" y="196" font-family="Consolas, monospace" font-size="17" fill="#e8edf3" letter-spacing="2">inspection_data.xlsx</text>
+  <g fill="#8a95a4" font-family="Consolas, monospace" font-size="14" letter-spacing="1">
+    <text x="140" y="252">PART</text><text x="250" y="252">MACHINE</text><text x="370" y="252">DEFECT</text><text x="480" y="252">QTY</text>
+  </g>
+  <path d="M130 266H540" stroke="#2f3b4a" stroke-width="2"/>
+  <g fill="#2f3b4a">
+    <rect x="140" y="288" width="80" height="14" rx="7"/><rect x="250" y="288" width="70" height="14" rx="7"/><rect x="370" y="288" width="84" height="14" rx="7" fill="#f0b44c" opacity=".7"/><rect x="480" y="288" width="34" height="14" rx="7"/>
+    <rect x="140" y="336" width="70" height="14" rx="7"/><rect x="250" y="336" width="80" height="14" rx="7"/><rect x="370" y="336" width="70" height="14" rx="7"/><rect x="480" y="336" width="30" height="14" rx="7"/>
+    <rect x="140" y="384" width="86" height="14" rx="7"/><rect x="250" y="384" width="64" height="14" rx="7"/><rect x="370" y="384" width="90" height="14" rx="7" fill="#ef6b6b" opacity=".7"/><rect x="480" y="384" width="38" height="14" rx="7"/>
+    <rect x="140" y="432" width="74" height="14" rx="7"/><rect x="250" y="432" width="76" height="14" rx="7"/><rect x="370" y="432" width="66" height="14" rx="7"/><rect x="480" y="432" width="28" height="14" rx="7"/>
+    <rect x="140" y="480" width="82" height="14" rx="7"/><rect x="250" y="480" width="70" height="14" rx="7"/><rect x="370" y="480" width="84" height="14" rx="7" fill="#f0b44c" opacity=".7"/><rect x="480" y="480" width="36" height="14" rx="7"/>
+    <rect x="140" y="528" width="68" height="14" rx="7"/><rect x="250" y="528" width="82" height="14" rx="7"/><rect x="370" y="528" width="72" height="14" rx="7"/><rect x="480" y="528" width="32" height="14" rx="7"/>
+    <rect x="140" y="576" width="80" height="14" rx="7"/><rect x="250" y="576" width="66" height="14" rx="7"/><rect x="370" y="576" width="88" height="14" rx="7" fill="#ef6b6b" opacity=".7"/><rect x="480" y="576" width="34" height="14" rx="7"/>
+    <rect x="140" y="624" width="76" height="14" rx="7"/><rect x="250" y="624" width="74" height="14" rx="7"/><rect x="370" y="624" width="70" height="14" rx="7"/><rect x="480" y="624" width="30" height="14" rx="7"/>
+    <rect x="140" y="672" width="72" height="14" rx="7"/><rect x="250" y="672" width="78" height="14" rx="7"/><rect x="370" y="672" width="80" height="14" rx="7"/><rect x="480" y="672" width="36" height="14" rx="7"/>
+  </g>
+  <g stroke="#222c38"><path d="M130 318H540M130 366H540M130 414H540M130 462H540M130 510H540M130 558H540M130 606H540M130 654H540"/></g>
+</g>
+<path d="M565 450H630" stroke="#5b9dff" stroke-width="3" fill="none" stroke-dasharray="10 8" marker-end="url(#arw)"/>
+<!-- Pareto chart -->
+<g>
+  <rect x="645" y="160" width="845" height="410" rx="20" fill="#111720" stroke="#2f3b4a" stroke-width="2"/>
+  <text x="675" y="204" font-family="Consolas, monospace" font-size="17" fill="#e8edf3" letter-spacing="2">DEFECT PARETO</text>
+  <path d="M700 520H1440" stroke="#2f3b4a" stroke-width="2"/>
+  <path d="M700 288H1440" stroke="#f0b44c" stroke-width="2" stroke-dasharray="6 8" opacity=".6"/>
+  <text x="1445" y="284" font-family="Consolas, monospace" font-size="14" fill="#f0b44c" text-anchor="end" opacity=".9">80%</text>
+  <g fill="#5b9dff">
+    <rect x="710" y="270" width="90" height="250" rx="6"/>
+    <rect x="830" y="350" width="90" height="170" rx="6" opacity=".85"/>
+    <rect x="950" y="410" width="90" height="110" rx="6" opacity=".7"/>
+    <rect x="1070" y="450" width="90" height="70" rx="6" opacity=".55"/>
+    <rect x="1190" y="475" width="90" height="45" rx="6" opacity=".45"/>
+    <rect x="1310" y="495" width="90" height="25" rx="6" opacity=".35"/>
+  </g>
+  <path d="M755 413L875 337L995 291L1115 259L1235 242L1355 230" stroke="#f0b44c" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+  <g fill="#0b0f14" stroke="#f0b44c" stroke-width="3"><circle cx="755" cy="413" r="7"/><circle cx="875" cy="337" r="7"/><circle cx="995" cy="291" r="7"/><circle cx="1115" cy="259" r="7"/><circle cx="1235" cy="242" r="7"/><circle cx="1355" cy="230" r="7"/></g>
+</g>
+<!-- AI insight -->
+<g>
+  <rect x="645" y="595" width="845" height="145" rx="20" fill="#111720" stroke="#5b9dff" stroke-opacity=".55" stroke-width="2"/>
+  <path d="M700 640l7 18 18 7-18 7-7 18-7-18-18-7 18-7z" fill="#5b9dff"/>
+  <path d="M736 622l3.5 9 9 3.5-9 3.5-3.5 9-3.5-9-9-3.5 9-3.5z" fill="#5b9dff" opacity=".7"/>
+  <text x="760" y="640" font-family="Consolas, monospace" font-size="16" fill="#5b9dff" letter-spacing="2">AI INSIGHT SUMMARY</text>
+  <rect x="760" y="660" width="560" height="13" rx="6.5" fill="#a6b0bd" opacity=".55"/>
+  <rect x="760" y="686" width="480" height="13" rx="6.5" fill="#a6b0bd" opacity=".4"/>
+  <rect x="760" y="712" width="380" height="13" rx="6.5" fill="#a6b0bd" opacity=".3"/>
+</g>
+</svg>

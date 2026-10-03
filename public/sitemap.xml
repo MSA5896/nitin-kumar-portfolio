@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>YOUR_WEBSITE_URL/</loc></url>
+  <url><loc>YOUR_WEBSITE_URL/notes</loc></url>
+  <url><loc>YOUR_WEBSITE_URL/projects/smart-ot-environmental-monitoring</loc></url>
+  <url><loc>YOUR_WEBSITE_URL/projects/ai-quality-data-analyzer</loc></url>
+  <url><loc>YOUR_WEBSITE_URL/projects/ai-report-automation</loc></url>
+  <url><loc>YOUR_WEBSITE_URL/projects/iot-environmental-monitoring</loc></url>
+  <url><loc>YOUR_WEBSITE_URL/projects/arduino-day-night-rain-detection</loc></url>
+  <url><loc>YOUR_WEBSITE_URL/projects/ros2-robotics</loc></url>
+</urlset>

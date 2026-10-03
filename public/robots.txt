@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace YOUR_WEBSITE_URL with your live domain
+Sitemap: YOUR_WEBSITE_URL/sitemap.xml

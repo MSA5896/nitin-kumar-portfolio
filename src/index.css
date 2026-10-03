@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ==========================================================
+   DESIGN TOKENS — change colors here only.
+   Components use semantic Tailwind classes (bg-surface, text-muted,
+   text-primary, border-line ...) mapped below in @theme.
+   ========================================================== */
+:root {
+  /* Light theme */
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --surface-2: #edf1f6;
+  --line: #d9e0e9;
+  --line-strong: #c3ccd8;
+  --fg: #0e1621;
+  --muted: #475365;
+  --subtle: #5a6677;
+  --primary: #1b5ccc;
+  --primary-hover: #154ba8;
+  --primary-fg: #ffffff;
+  --primary-soft: rgb(27 92 204 / 0.09);
+  --accent: #9a5b00;
+  --accent-soft: rgb(196 120 0 / 0.12);
+  --success: #18794e;
+  --success-soft: rgb(24 121 78 / 0.11);
+  --violet: #6440c4;
+  --violet-soft: rgb(100 64 196 / 0.1);
+  --grid: rgb(14 22 33 / 0.05);
+  --shadow: 0 1px 2px rgb(14 22 33 / 0.05), 0 8px 24px -12px rgb(14 22 33 / 0.12);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0b0f14;
+  --surface: #111720;
+  --surface-2: #17202b;
+  --line: #222c38;
+  --line-strong: #2f3b4a;
+  --fg: #e8edf3;
+  --muted: #a6b0bd;
+  --subtle: #8a95a4;
+  --primary: #5b9dff;
+  --primary-hover: #7cb1ff;
+  --primary-fg: #06101f;
+  --primary-soft: rgb(91 157 255 / 0.12);
+  --accent: #f0b44c;
+  --accent-soft: rgb(240 180 76 / 0.12);
+  --success: #4cc38a;
+  --success-soft: rgb(76 195 138 / 0.12);
+  --violet: #a78bfa;
+  --violet-soft: rgb(167 139 250 / 0.12);
+  --grid: rgb(232 237 243 / 0.035);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px -14px rgb(0 0 0 / 0.6);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-fg: var(--primary-fg);
+  --color-primary-soft: var(--primary-soft);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-violet: var(--violet);
+  --color-violet-soft: var(--violet-soft);
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --shadow-card: var(--shadow);
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+  ::selection {
+    background: var(--primary-soft);
+  }
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ---------- Utilities ---------- */
+@utility container-page {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+/* Scroll reveal (driven by the <Reveal> component) */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Timeline line draw */
+.timeline-line {
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 1.2s ease;
+}
+.is-visible .timeline-line {
+  transform: scaleY(1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pulse-dot {
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .timeline-line {
+    transform: none;
+  }
+}

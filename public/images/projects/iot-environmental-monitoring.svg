@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+<defs>
+<pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8edf3" stroke-opacity=".05"/></pattern>
+<radialGradient id="glow" cx="50%" cy="0%" r="75%"><stop offset="0" stop-color="#5b9dff" stop-opacity=".2"/><stop offset="1" stop-color="#5b9dff" stop-opacity="0"/></radialGradient>
+<marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5b9dff"/></marker>
+<filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1600" height="900" fill="#0b0f14"/><rect width="1600" height="900" fill="url(#g)"/><rect width="1600" height="900" fill="url(#glow)"/>
+<!-- Sensors -->
+<g font-family="Consolas, monospace" font-size="16" fill="#a6b0bd" text-anchor="middle">
+  <g transform="translate(120 190)"><rect width="150" height="100" rx="12" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/><circle cx="40" cy="50" r="18" fill="none" stroke="#5b9dff" stroke-width="3"/><path d="M40 38V54" stroke="#5b9dff" stroke-width="3"/><rect x="72" y="36" width="56" height="10" rx="5" fill="#2f3b4a"/><rect x="72" y="54" width="40" height="10" rx="5" fill="#2f3b4a"/><text x="75" y="130">TEMP / RH</text></g>
+  <g transform="translate(120 400)"><rect width="150" height="100" rx="12" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/><path d="M28 62c10-18 20-18 30 0s20 18 30 0 20-18 30 0" fill="none" stroke="#4cc38a" stroke-width="3"/><text x="75" y="130">AIR QUALITY</text></g>
+  <g transform="translate(120 610)"><rect width="150" height="100" rx="12" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/><circle cx="75" cy="50" r="16" fill="#f0b44c" opacity=".85"/><path d="M75 18V26M75 74V82M43 50H51M99 50H107M52 27L58 33M92 67L98 73M52 73L58 67M92 33L98 27" stroke="#f0b44c" stroke-width="3"/><text x="75" y="130">LIGHT</text></g>
+</g>
+<g fill="none" stroke="#5b9dff" stroke-width="2.5" opacity=".7"><path d="M270 240H320V400H360"/><path d="M270 450H360"/><path d="M270 660H320V500H360"/></g>
+<!-- Raspberry Pi -->
+<g>
+  <rect x="360" y="320" width="320" height="260" rx="18" fill="#123222" stroke="#4cc38a" stroke-width="2.5"/>
+  <g fill="#e2c46b"><rect x="388" y="336" width="250" height="10" rx="3" opacity=".25"/><rect x="388" y="352" width="250" height="10" rx="3" opacity=".25"/></g>
+  <g fill="#e2c46b"><circle cx="396" cy="341" r="3.5"/><circle cx="412" cy="341" r="3.5"/><circle cx="428" cy="341" r="3.5"/><circle cx="444" cy="341" r="3.5"/><circle cx="460" cy="341" r="3.5"/><circle cx="476" cy="341" r="3.5"/><circle cx="492" cy="341" r="3.5"/><circle cx="508" cy="341" r="3.5"/><circle cx="524" cy="341" r="3.5"/><circle cx="540" cy="341" r="3.5"/><circle cx="556" cy="341" r="3.5"/><circle cx="572" cy="341" r="3.5"/><circle cx="588" cy="341" r="3.5"/><circle cx="604" cy="341" r="3.5"/><circle cx="620" cy="341" r="3.5"/><circle cx="396" cy="357" r="3.5"/><circle cx="412" cy="357" r="3.5"/><circle cx="428" cy="357" r="3.5"/><circle cx="444" cy="357" r="3.5"/><circle cx="460" cy="357" r="3.5"/><circle cx="476" cy="357" r="3.5"/><circle cx="492" cy="357" r="3.5"/><circle cx="508" cy="357" r="3.5"/><circle cx="524" cy="357" r="3.5"/><circle cx="540" cy="357" r="3.5"/><circle cx="556" cy="357" r="3.5"/><circle cx="572" cy="357" r="3.5"/><circle cx="588" cy="357" r="3.5"/><circle cx="604" cy="357" r="3.5"/><circle cx="620" cy="357" r="3.5"/></g>
+  <rect x="440" y="400" width="104" height="104" rx="8" fill="#0b0f14" stroke="#2f3b4a" stroke-width="2"/>
+  <text x="492" y="459" font-family="Consolas, monospace" font-size="16" fill="#4cc38a" text-anchor="middle">CPU</text>
+  <rect x="590" y="400" width="66" height="44" rx="4" fill="#a6b0bd" opacity=".5"/><rect x="590" y="458" width="66" height="44" rx="4" fill="#a6b0bd" opacity=".5"/>
+  <text x="520" y="620" font-family="Consolas, monospace" font-size="17" fill="#8a95a4" text-anchor="middle" letter-spacing="3">RASPBERRY PI</text>
+</g>
+<!-- Wireless -->
+<g fill="none" stroke="#5b9dff" stroke-width="4" stroke-linecap="round"><path d="M705 400a40 40 0 0 1 0 56" opacity=".9"/><path d="M725 380a68 68 0 0 1 0 96" opacity=".6"/><path d="M745 360a96 96 0 0 1 0 136" opacity=".35"/></g>
+<!-- Chart panel -->
+<g>
+  <rect x="800" y="180" width="680" height="540" rx="22" fill="#111720" stroke="#2f3b4a" stroke-width="2"/>
+  <text x="836" y="232" font-family="Consolas, monospace" font-size="18" fill="#e8edf3" letter-spacing="3">SENSOR DASHBOARD</text>
+  <g font-size="15" font-family="Consolas, monospace"><circle cx="1240" cy="226" r="6" fill="#5b9dff"/><text x="1254" y="231" fill="#a6b0bd">temp</text><circle cx="1330" cy="226" r="6" fill="#4cc38a"/><text x="1344" y="231" fill="#a6b0bd">humidity</text></g>
+  <g stroke="#222c38"><path d="M840 300H1440M840 380H1440M840 460H1440M840 540H1440M840 620H1440"/></g>
+  <path d="M840 340H1440" stroke="#f0b44c" stroke-width="2" stroke-dasharray="8 8"/>
+  <text x="1440" y="330" font-family="Consolas, monospace" font-size="14" fill="#f0b44c" text-anchor="end">alert threshold</text>
+  <path d="M840 520C900 500 940 470 1000 480S1080 520 1140 470 1220 330 1260 326 1340 420 1440 430" stroke="#5b9dff" stroke-width="4" fill="none"/>
+  <path d="M840 580C920 570 980 590 1040 572S1160 560 1220 576 1360 590 1440 570" stroke="#4cc38a" stroke-width="3.5" fill="none"/>
+  <circle cx="1240" cy="334" r="22" fill="#f0b44c" opacity=".18"/><circle cx="1240" cy="334" r="9" fill="#f0b44c"/>
+  <g transform="translate(1204 640)"><path d="M18 0c-10 0-16 8-16 16v12l-6 8h44l-6-8V16C34 8 28 0 18 0z" fill="#f0b44c" transform="translate(0 0) scale(.9)"/><circle cx="16" cy="38" r="5" fill="#f0b44c"/></g>
+  <text x="1256" y="672" font-family="Consolas, monospace" font-size="15" fill="#f0b44c">threshold alert</text>
+</g>
+</svg>
