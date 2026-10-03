@@ -10,7 +10,7 @@ const Router = isHashRouter ? HashRouter : BrowserRouter
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Router>
+    <Router {...(isHashRouter ? {} : { basename: import.meta.env.BASE_URL })}>
       <App />
     </Router>
   </StrictMode>,

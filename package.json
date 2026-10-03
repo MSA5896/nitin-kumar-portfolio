@@ -8,7 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "build:gh": "vite build --mode gh",
-    "sitemap": "node scripts/generate-sitemap.mjs"
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "build:pages": "vite build --mode pages && node scripts/postbuild.mjs https://msa5896.github.io/nitin-kumar-portfolio",
+    "deploy": "node scripts/deploy-pages.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.51.0",

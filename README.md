@@ -209,11 +209,16 @@ Visitors fill in their own details first. Your email and phone number appear onl
 
 ## Deploy to GitHub Pages
 
-1. Run `npm run build:gh`. This uses relative asset paths and hash URLs such as `/#/projects/...`, so it works in a sub-folder and refreshes never 404.
-2. Publish the contents of `dist/`:
-   - **Simple:** push `dist/` to a `gh-pages` branch, for example with `npx gh-pages -d dist`. Then in the repository go to Settings → Pages and select the `gh-pages` branch.
-   - **GitHub Actions:** use the official "Deploy static content to Pages" workflow, with `npm ci && npm run build:gh` as the build step and `dist` as the upload path.
-3. The site will be at `https://<username>.github.io/<repository>/`.
+This is how the live site is published.
+
+1. Push this project to a GitHub repository named `nitin-kumar-portfolio` (the name is set in `vite.config.js` as `PAGES_BASE`).
+2. Run `npm run deploy`. It builds the site with clean per-page URLs, writes a real HTML page for every project and note, generates `sitemap.xml` and `robots.txt`, and pushes the result to the `gh-pages` branch.
+3. In the repository, open Settings, then Pages, and set the source to the `gh-pages` branch, root folder.
+4. The site is served at `https://<username>.github.io/nitin-kumar-portfolio/`.
+
+To use a different repository name or a custom domain, change `PAGES_BASE` in `vite.config.js` and the URL in the `build:pages` script in `package.json`. For a custom domain at the root, use base `/`.
+
+**Fallback:** `npm run build:gh` makes a hash-URL version that works under any sub-folder, but Google can only index its home page.
 
 ---
 

@@ -13,7 +13,7 @@ export function scrollToSection(id) {
 }
 
 /** href used for section links (real anchors in browser mode for no-JS/crawlers). */
-export const sectionHref = (id) => (isHashRouter ? `#/?s=${id}` : `/#${id}`)
+export const sectionHref = (id) => (isHashRouter ? `#/?s=${id}` : `${import.meta.env.BASE_URL}#${id}`)
 
 /** Navigate to a home-page section from anywhere in the app. */
 export function useSectionNav() {

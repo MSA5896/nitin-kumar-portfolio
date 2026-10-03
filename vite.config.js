@@ -7,11 +7,15 @@ import tailwindcss from '@tailwindcss/vite'
 // 404 request. After adding public/resume.pdf, restart `npm run dev`.
 const hasResume = existsSync(new URL('./public/resume.pdf', import.meta.url))
 
-// `npm run build:gh` uses mode "gh": relative asset paths + hash routing,
-// which is what GitHub Pages needs. Every other build uses clean URLs.
+// Build modes:
+//   (default)  base "/"                      -> Vercel, Netlify, custom domain
+//   "pages"    base "/nitin-kumar-portfolio/" -> GitHub Pages project site (npm run build:pages)
+//   "gh"       relative paths + hash URLs     -> fallback that works under any sub-folder
+export const PAGES_BASE = '/nitin-kumar-portfolio/'
+
 export default defineConfig(({ mode }) => ({
   plugins: [react(), tailwindcss()],
-  base: mode === 'gh' ? './' : '/',
+  base: mode === 'gh' ? './' : mode === 'pages' ? PAGES_BASE : '/',
   define: {
     __HAS_RESUME__: JSON.stringify(hasResume),
   },
