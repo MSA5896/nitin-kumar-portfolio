@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://msa5896.github.io/nitin-kumar-portfolio/sitemap.xml

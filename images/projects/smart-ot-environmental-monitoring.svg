@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+<defs>
+<pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8edf3" stroke-opacity=".05"/></pattern>
+<radialGradient id="glow" cx="50%" cy="0%" r="75%"><stop offset="0" stop-color="#5b9dff" stop-opacity=".2"/><stop offset="1" stop-color="#5b9dff" stop-opacity="0"/></radialGradient>
+<marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5b9dff"/></marker>
+<filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1600" height="900" fill="#0b0f14"/><rect width="1600" height="900" fill="url(#g)"/><rect width="1600" height="900" fill="url(#glow)"/>
+<!-- Sensors -->
+<g font-family="Consolas, monospace" font-size="17" fill="#e8edf3" text-anchor="middle">
+  <g><rect x="140" y="160" width="110" height="64" rx="10" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/><text x="195" y="198">SCD30</text></g>
+  <g><rect x="275" y="160" width="110" height="64" rx="10" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/><text x="330" y="198">BME280</text></g>
+  <g><rect x="410" y="160" width="110" height="64" rx="10" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/><text x="465" y="198">PM</text></g>
+  <g><rect x="190" y="676" width="110" height="64" rx="10" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/><text x="245" y="714">ΔP</text></g>
+  <g><rect x="360" y="676" width="110" height="64" rx="10" fill="#17202b" stroke="#2f3b4a" stroke-width="2"/><text x="415" y="714">LUX</text></g>
+</g>
+<g fill="none" stroke="#5b9dff" stroke-width="2" stroke-dasharray="6 7" opacity=".75">
+  <path d="M195 224V290H260V330"/><path d="M330 224V330"/><path d="M465 224V290H400V330"/>
+  <path d="M245 676V610H280V570"/><path d="M415 676V610H380V570"/>
+</g>
+<!-- Edge controller board -->
+<g>
+  <rect x="150" y="330" width="380" height="240" rx="18" fill="#123222" stroke="#4cc38a" stroke-width="2.5"/>
+  <g fill="#e2c46b" opacity=".9">
+    <rect x="180" y="346" width="10" height="10"/><rect x="198" y="346" width="10" height="10"/><rect x="216" y="346" width="10" height="10"/><rect x="234" y="346" width="10" height="10"/><rect x="252" y="346" width="10" height="10"/><rect x="270" y="346" width="10" height="10"/><rect x="288" y="346" width="10" height="10"/><rect x="306" y="346" width="10" height="10"/><rect x="324" y="346" width="10" height="10"/><rect x="342" y="346" width="10" height="10"/><rect x="360" y="346" width="10" height="10"/><rect x="378" y="346" width="10" height="10"/><rect x="396" y="346" width="10" height="10"/><rect x="414" y="346" width="10" height="10"/>
+    <rect x="180" y="362" width="10" height="10"/><rect x="198" y="362" width="10" height="10"/><rect x="216" y="362" width="10" height="10"/><rect x="234" y="362" width="10" height="10"/><rect x="252" y="362" width="10" height="10"/><rect x="270" y="362" width="10" height="10"/><rect x="288" y="362" width="10" height="10"/><rect x="306" y="362" width="10" height="10"/><rect x="324" y="362" width="10" height="10"/><rect x="342" y="362" width="10" height="10"/><rect x="360" y="362" width="10" height="10"/><rect x="378" y="362" width="10" height="10"/><rect x="396" y="362" width="10" height="10"/><rect x="414" y="362" width="10" height="10"/>
+  </g>
+  <rect x="250" y="410" width="110" height="110" rx="8" fill="#0b0f14" stroke="#2f3b4a" stroke-width="2"/>
+  <rect x="272" y="432" width="66" height="66" rx="4" fill="#17202b"/>
+  <rect x="390" y="420" width="60" height="40" rx="4" fill="#a6b0bd" opacity=".55"/>
+  <rect x="390" y="476" width="60" height="40" rx="4" fill="#a6b0bd" opacity=".55"/>
+  <rect x="470" y="430" width="60" height="76" rx="4" fill="#a6b0bd" opacity=".4"/>
+  <text x="340" y="552" font-family="Consolas, monospace" font-size="16" fill="#4cc38a" text-anchor="middle" letter-spacing="2">EDGE CONTROLLER</text>
+</g>
+<path d="M530 450H632" stroke="#5b9dff" stroke-width="3" fill="none" stroke-dasharray="10 8" marker-end="url(#arw)"/>
+<!-- Dashboard -->
+<g>
+  <rect x="650" y="150" width="810" height="610" rx="22" fill="#111720" stroke="#2f3b4a" stroke-width="2"/>
+  <rect x="650" y="150" width="810" height="62" rx="22" fill="#17202b"/><rect x="650" y="190" width="810" height="22" fill="#17202b"/>
+  <circle cx="684" cy="181" r="7" fill="#4cc38a"/>
+  <text x="704" y="188" font-family="Consolas, monospace" font-size="18" fill="#e8edf3" letter-spacing="3">OT ENVIRONMENT MONITOR</text>
+  <rect x="1330" y="166" width="104" height="30" rx="15" fill="#4cc38a" fill-opacity=".14"/><text x="1382" y="187" font-size="15" fill="#4cc38a" text-anchor="middle" font-weight="600">LIVE</text>
+  <g font-size="17" fill="#a6b0bd">
+    <g transform="translate(675 235)"><rect width="175" height="180" rx="14" fill="#17202b" stroke="#222c38"/><text x="18" y="34">Temperature</text><circle cx="155" cy="28" r="6" fill="#4cc38a"/><rect x="18" y="56" width="70" height="16" rx="8" fill="#e8edf3" opacity=".85"/><path d="M18 150L45 132L72 138L99 118L126 124L157 108" stroke="#5b9dff" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+    <g transform="translate(870 235)"><rect width="175" height="180" rx="14" fill="#17202b" stroke="#222c38"/><text x="18" y="34">Humidity</text><circle cx="155" cy="28" r="6" fill="#4cc38a"/><rect x="18" y="56" width="60" height="16" rx="8" fill="#e8edf3" opacity=".85"/><path d="M18 120L45 128L72 116L99 130L126 122L157 126" stroke="#5b9dff" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+    <g transform="translate(1065 235)"><rect width="175" height="180" rx="14" fill="#17202b" stroke="#222c38"/><text x="18" y="34">CO₂</text><circle cx="155" cy="28" r="6" fill="#4cc38a"/><rect x="18" y="56" width="80" height="16" rx="8" fill="#e8edf3" opacity=".85"/><path d="M18 146L45 140L72 128L99 132L126 116L157 112" stroke="#5b9dff" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+    <g transform="translate(1260 235)"><rect width="175" height="180" rx="14" fill="#17202b" stroke="#f0b44c" stroke-opacity=".7"/><text x="18" y="34">Pressure Δ</text><circle cx="155" cy="28" r="6" fill="#f0b44c"/><rect x="18" y="56" width="66" height="16" rx="8" fill="#f0b44c" opacity=".85"/><path d="M18 118L45 124L72 120L99 134L126 146L157 152" stroke="#f0b44c" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M18 140H157" stroke="#f0b44c" stroke-dasharray="4 5" opacity=".6"/></g>
+    <g transform="translate(675 435)"><rect width="175" height="180" rx="14" fill="#17202b" stroke="#222c38"/><text x="18" y="34">Light</text><circle cx="155" cy="28" r="6" fill="#4cc38a"/><rect x="18" y="56" width="74" height="16" rx="8" fill="#e8edf3" opacity=".85"/><path d="M18 130L45 130L72 112L99 112L126 112L157 128" stroke="#5b9dff" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+    <g transform="translate(870 435)"><rect width="175" height="180" rx="14" fill="#17202b" stroke="#222c38"/><text x="18" y="34">PM1</text><circle cx="155" cy="28" r="6" fill="#4cc38a"/><rect x="18" y="56" width="50" height="16" rx="8" fill="#e8edf3" opacity=".85"/><path d="M18 148L45 142L72 146L99 136L126 140L157 134" stroke="#5b9dff" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+    <g transform="translate(1065 435)"><rect width="175" height="180" rx="14" fill="#17202b" stroke="#222c38"/><text x="18" y="34">PM2.5</text><circle cx="155" cy="28" r="6" fill="#4cc38a"/><rect x="18" y="56" width="56" height="16" rx="8" fill="#e8edf3" opacity=".85"/><path d="M18 140L45 146L72 136L99 142L126 130L157 138" stroke="#5b9dff" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+    <g transform="translate(1260 435)"><rect width="175" height="180" rx="14" fill="#17202b" stroke="#222c38"/><text x="18" y="34">PM10</text><circle cx="155" cy="28" r="6" fill="#4cc38a"/><rect x="18" y="56" width="62" height="16" rx="8" fill="#e8edf3" opacity=".85"/><path d="M18 134L45 128L72 140L99 126L126 132L157 124" stroke="#5b9dff" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+  </g>
+  <rect x="675" y="638" width="760" height="100" rx="14" fill="#17202b" stroke="#222c38"/>
+  <path d="M700 712C760 700 800 680 860 690S960 720 1020 700 1120 668 1180 676 1280 706 1340 690 1400 680 1410 682" stroke="#5b9dff" stroke-width="3" fill="none"/>
+  <path d="M700 724C760 718 820 726 880 716S1000 708 1060 718 1180 726 1240 716 1360 712 1410 718" stroke="#4cc38a" stroke-width="2.5" fill="none" opacity=".8"/>
+  <text x="700" y="664" font-family="Consolas, monospace" font-size="14" fill="#8a95a4" letter-spacing="2">24H TREND</text>
+</g>
+</svg>

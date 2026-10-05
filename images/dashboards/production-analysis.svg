@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+<defs>
+<pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#e8edf3" stroke-opacity=".05"/></pattern>
+<radialGradient id="glow" cx="50%" cy="0%" r="75%"><stop offset="0" stop-color="#5b9dff" stop-opacity=".18"/><stop offset="1" stop-color="#5b9dff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1600" height="900" fill="#0b0f14"/><rect width="1600" height="900" fill="url(#g)"/><rect width="1600" height="900" fill="url(#glow)"/>
+<rect x="80" y="70" width="1440" height="760" rx="24" fill="#111720" stroke="#2f3b4a" stroke-width="2"/>
+<rect x="80" y="70" width="1440" height="64" rx="24" fill="#17202b"/><rect x="80" y="110" width="1440" height="24" fill="#17202b"/>
+<circle cx="118" cy="102" r="7" fill="#4cc38a"/>
+<text x="140" y="109" font-family="Consolas, monospace" font-size="19" fill="#e8edf3" letter-spacing="3">PRODUCTION ANALYSIS DASHBOARD</text>
+<rect x="1330" y="86" width="164" height="32" rx="16" fill="#f0b44c" fill-opacity=".15"/><text x="1412" y="108" font-size="15" fill="#f0b44c" text-anchor="middle" font-weight="600">SAMPLE LAYOUT</text>
+<rect x="110" y="160" width="330" height="110" rx="16" fill="#17202b" stroke="#222c38"/>
+<text x="132" y="194" font-family="Consolas, monospace" font-size="15" fill="#8a95a4" letter-spacing="2">OUTPUT VS TARGET</text>
+<rect x="132" y="216" width="138" height="22" rx="11" fill="#5b9dff" opacity=".9"/><rect x="132" y="248" width="230" height="8" rx="4" fill="#222c38"/>
+<rect x="465" y="160" width="330" height="110" rx="16" fill="#17202b" stroke="#222c38"/>
+<text x="487" y="194" font-family="Consolas, monospace" font-size="15" fill="#8a95a4" letter-spacing="2">FIRST PASS YIELD</text>
+<rect x="487" y="216" width="138" height="22" rx="11" fill="#4cc38a" opacity=".9"/><rect x="487" y="248" width="230" height="8" rx="4" fill="#222c38"/>
+<rect x="820" y="160" width="330" height="110" rx="16" fill="#17202b" stroke="#222c38"/>
+<text x="842" y="194" font-family="Consolas, monospace" font-size="15" fill="#8a95a4" letter-spacing="2">DOWNTIME</text>
+<rect x="842" y="216" width="138" height="22" rx="11" fill="#f0b44c" opacity=".9"/><rect x="842" y="248" width="230" height="8" rx="4" fill="#222c38"/>
+<rect x="1175" y="160" width="315" height="110" rx="16" fill="#17202b" stroke="#222c38"/>
+<text x="1197" y="194" font-family="Consolas, monospace" font-size="15" fill="#8a95a4" letter-spacing="2">WIP</text>
+<rect x="1197" y="216" width="132" height="22" rx="11" fill="#a78bfa" opacity=".9"/><rect x="1197" y="248" width="220" height="8" rx="4" fill="#222c38"/>
+<rect x="110" y="295" width="820" height="505" rx="16" fill="#17202b" stroke="#222c38"/>
+<text x="132" y="329" font-family="Consolas, monospace" font-size="15" fill="#8a95a4" letter-spacing="2">DAILY OUTPUT VS TARGET</text>
+<path d="M150 355.0H890" stroke="#222c38"/><path d="M150 450.0H890" stroke="#222c38"/><path d="M150 545.0H890" stroke="#222c38"/><path d="M150 640.0H890" stroke="#222c38"/><path d="M150 735.0H890" stroke="#222c38"/>
+<rect x="150.0" y="499.4" width="59.6" height="235.6" rx="5" fill="#5b9dff" opacity="0.95"/><rect x="225.6" y="469.0" width="59.6" height="266.0" rx="5" fill="#5b9dff" opacity="0.89"/><rect x="301.2" y="514.6" width="59.6" height="220.4" rx="5" fill="#5b9dff" opacity="0.83"/><rect x="376.8" y="431.0" width="59.6" height="304.0" rx="5" fill="#5b9dff" opacity="0.77"/><rect x="452.4" y="453.8" width="59.6" height="281.2" rx="5" fill="#5b9dff" opacity="0.71"/><rect x="528.0" y="408.2" width="59.6" height="326.8" rx="5" fill="#5b9dff" opacity="0.65"/><rect x="603.6" y="476.6" width="59.6" height="258.4" rx="5" fill="#5b9dff" opacity="0.59"/><rect x="679.2" y="393.0" width="59.6" height="342.0" rx="5" fill="#5b9dff" opacity="0.53"/><rect x="754.8" y="438.6" width="59.6" height="296.4" rx="5" fill="#5b9dff" opacity="0.47"/><rect x="830.4" y="423.4" width="59.6" height="311.6" rx="5" fill="#5b9dff" opacity="0.41"/><path d="M150 739H890" stroke="#2f3b4a" stroke-width="2"/>
+<path d="M150 440H890" stroke="#f0b44c" stroke-width="2.5" stroke-dasharray="8 8"/><text x="890" y="430" font-family="Consolas, monospace" font-size="14" fill="#f0b44c" text-anchor="end" letter-spacing="1.5">TARGET</text>
+<rect x="955" y="295" width="535" height="240" rx="16" fill="#17202b" stroke="#222c38"/>
+<text x="977" y="329" font-family="Consolas, monospace" font-size="15" fill="#8a95a4" letter-spacing="2">SHIFT-WISE OUTPUT</text>
+<rect x="990.0" y="376.0" width="126.7" height="104.0" rx="5" fill="#4cc38a" opacity="0.95"/><rect x="1156.7" y="395.5" width="126.7" height="84.5" rx="5" fill="#4cc38a" opacity="0.89"/><rect x="1323.3" y="415.0" width="126.7" height="65.0" rx="5" fill="#4cc38a" opacity="0.83"/><path d="M990 484H1450" stroke="#2f3b4a" stroke-width="2"/>
+<text x="1070" y="508" font-family="Consolas, monospace" font-size="14" fill="#8a95a4" text-anchor="middle" letter-spacing="1.5">SHIFT A</text>
+<text x="1230" y="508" font-family="Consolas, monospace" font-size="14" fill="#8a95a4" text-anchor="middle" letter-spacing="1.5">SHIFT B</text>
+<text x="1390" y="508" font-family="Consolas, monospace" font-size="14" fill="#8a95a4" text-anchor="middle" letter-spacing="1.5">SHIFT C</text>
+<rect x="955" y="560" width="535" height="240" rx="16" fill="#17202b" stroke="#222c38"/>
+<text x="977" y="594" font-family="Consolas, monospace" font-size="15" fill="#8a95a4" letter-spacing="2">DOWNTIME REASONS</text>
+<rect x="990" y="610" width="470" height="18" rx="10" fill="#222c38"/><rect x="990" y="610" width="399.5" height="18" rx="10" fill="#f0b44c" opacity="0.95"/><rect x="990" y="650" width="470" height="18" rx="10" fill="#222c38"/><rect x="990" y="650" width="282.0" height="18" rx="10" fill="#f0b44c" opacity="0.87"/><rect x="990" y="690" width="470" height="18" rx="10" fill="#222c38"/><rect x="990" y="690" width="197.4" height="18" rx="10" fill="#f0b44c" opacity="0.79"/><rect x="990" y="730" width="470" height="18" rx="10" fill="#222c38"/><rect x="990" y="730" width="117.5" height="18" rx="10" fill="#f0b44c" opacity="0.71"/>
+</svg>
