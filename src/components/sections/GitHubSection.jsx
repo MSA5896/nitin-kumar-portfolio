@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { BookOpen, ExternalLink, FolderGit2 } from 'lucide-react'
 import Section from '../ui/Section'
-import Reveal from '../ui/Reveal'
+import Slider from '../ui/Slider'
 import Button from '../ui/Button'
 import { StatusBadge } from '../ui/Badges'
 import { GithubIcon } from '../ui/icons'
@@ -21,12 +21,12 @@ export default function GitHubSection() {
       title="Repositories & documentation"
       description="Source code, demos and documentation for each project are linked here as they are published."
     >
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p, i) => {
+      <Slider label="repositories">
+        {projects.map((p) => {
           const { github, demo, docs } = p.links || {}
           const hasAny = github || demo || docs
           return (
-            <Reveal as="li" key={p.slug} delay={(i % 3) * 70} className="flex flex-col rounded-xl border border-line bg-surface p-5">
+            <div key={p.slug} className="flex h-full flex-col rounded-xl border border-line bg-surface p-4">
               <div className="flex items-start justify-between gap-3">
                 <FolderGit2 size={20} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
                 <StatusBadge status={p.status} />
@@ -53,10 +53,10 @@ export default function GitHubSection() {
                 )}
                 {!hasAny && <span className="text-sm text-subtle">Repository not yet public</span>}
               </div>
-            </Reveal>
+            </div>
           )
         })}
-      </ul>
+      </Slider>
       {hasProfile && (
         <div className="mt-8">
           <Button href={site.github} variant="secondary">

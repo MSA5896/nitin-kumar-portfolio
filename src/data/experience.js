@@ -125,7 +125,7 @@ export const education = [
   {
     degree: 'M.Tech, Applied Mechatronics & Robotics',
     institution: 'Indian Institute of Technology (IIT) Bhilai',
-    period: null, // add years, e.g. '2022 – 2024'
+    period: '2025 – 2027',
     areas: [
       'Mechatronics',
       'Robotics',
@@ -190,7 +190,7 @@ export const timeline = [
     text: 'Qualified the Graduate Aptitude Test in Engineering.',
   },
   {
-    label: 'Postgraduate',
+    label: '2025 – 2027',
     title: 'M.Tech, Applied Mechatronics & Robotics',
     org: 'IIT Bhilai',
     text: 'Mechatronics, robotics, automation, embedded systems, IoT and control systems.',

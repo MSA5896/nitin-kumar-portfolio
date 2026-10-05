@@ -3,7 +3,7 @@ import { LockKeyhole, Mail, MapPin, Phone, ShieldCheck } from 'lucide-react'
 import Section from '../ui/Section'
 import Reveal from '../ui/Reveal'
 import CopyButton from '../ui/CopyButton'
-import { LinkedinIcon, WhatsappIcon } from '../ui/icons'
+import { WhatsappIcon } from '../ui/icons'
 import ContactForm from './ContactForm'
 import { site } from '../../config/site'
 import { isConfigured } from '../../utils/config'
@@ -102,7 +102,7 @@ export default function Contact() {
       title="Get in touch"
       description="Share your details and what you need. My direct contact information is shown as soon as you submit, and your message reaches my inbox."
     >
-      <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr]">
+      <div className="grid gap-8 lg:grid-cols-[1fr_1.5fr]">
         <Reveal className="space-y-4">
           <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-sm text-muted">
             <span className="pulse-dot h-2 w-2 rounded-full bg-success" aria-hidden="true" />
@@ -110,15 +110,6 @@ export default function Contact() {
           </p>
 
           <div aria-live="polite">{unlocked ? <ContactDetails /> : <LockedCard />}</div>
-
-          <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className={rowClass}>
-            <LinkedinIcon size={20} className="shrink-0 text-primary" />
-            <span className="flex-1">
-              <span className="block font-medium text-fg">LinkedIn</span>
-              <span className="block text-sm text-muted">Connect or send a message</span>
-            </span>
-            <span className="sr-only">(opens in a new tab)</span>
-          </a>
 
           <div className="flex items-center gap-3 p-4 text-muted">
             <MapPin size={20} className="shrink-0 text-subtle" aria-hidden="true" />

@@ -339,6 +339,73 @@ export const projects = [
     challenges: ['Understanding the ROS2 build and package system', 'Designing clean node boundaries'],
     future: ['Simulation with Gazebo', 'Connecting ROS2 to real sensors and actuators'],
   },
+  {
+    slug: 'solar-panel-cleaner',
+    featured: false,
+    title: 'Dual-Motor Lead-Screw Solar Panel Cleaner',
+    category: 'Mechatronics',
+    filters: ['Embedded', 'Robotics', 'Manufacturing'],
+    status: 'Concept',
+    summary:
+      'A design for an automatic solar-panel cleaner: two geared DC motors drive a wiper along lead screws with a spray pump, limit-switch homing, a state-machine controller and built-in fault protection.',
+    tags: ['Arduino / ESP32', 'DC Motors', 'Lead Screw', 'Limit Switches', 'L298N / BTS7960', 'State Machine', 'Solar'],
+    links: { github: '', demo: '', docs: '' },
+    image: '/images/projects/solar-panel-cleaner.svg',
+    imageIsIllustration: true,
+    screenshots: [
+      { src: null, caption: 'Mechanical assembly / CAD' },
+      { src: null, caption: 'Wiring diagram' },
+    ],
+    disclaimer: 'Design and working-protocol stage. No built prototype, test results or field deployment is claimed.',
+    problem:
+      'Dust on solar panels cuts energy output, and manual cleaning is slow, costly and difficult on large arrays. Fixed-schedule cleaning can also waste water and add mechanical wear on days with no dust.',
+    objective:
+      'Define a safe, repeatable, automatic cleaning cycle: home, wash and wipe down, squeegee on the return stroke, then park the wiper off the cells.',
+    solution:
+      'Two DC geared motors turn lead screws that carry the wiper up and down the panel. Limit switches set the start and end positions, a microcontroller runs a six-state sequence, and an optional relay-driven pump sprays water on the downstroke.',
+    components: [
+      '2 DC geared motors (M1, M2)',
+      'Dual motor driver (L298N / BTS7960)',
+      '2 limit switches: LS-TOP, LS-BOT (normally open)',
+      'Microcontroller (Arduino / ESP32)',
+      'Water pump with relay (optional)',
+      'Mechanical hard stops behind each switch',
+    ],
+    behavior: [
+      { condition: 'HOME: motors UP, pump OFF', output: 'LS-TOP closes → IDLE' },
+      { condition: 'IDLE: motors stopped, pump OFF', output: 'Trigger (button / RTC schedule / remote) → DOWN' },
+      { condition: 'DOWN: motors CW, pump ON', output: 'LS-BOT closes → PAUSE' },
+      { condition: 'PAUSE: motors stopped, pump OFF', output: 'After 0.5–1 s → UP (protects the gearbox from sudden reversal)' },
+      { condition: 'UP: motors CCW, pump OFF', output: 'LS-TOP closes → IDLE, cycle count logged' },
+      { condition: 'FAULT: motors stopped, pump OFF', output: 'Manual reset' },
+    ],
+    architecture: [
+      { label: 'Trigger', detail: 'Push button, RTC schedule (dawn / dusk) or remote command' },
+      { label: 'Microcontroller', detail: 'State machine: HOME, IDLE, DOWN, PAUSE, UP, FAULT' },
+      { label: 'Motor Driver', detail: 'M1 and M2 share the same direction and speed signals' },
+      { label: 'Lead Screws + Wiper', detail: 'Wipes down with spray, squeegees on the return stroke' },
+      { label: 'Limit Switches', detail: 'LS-TOP and LS-BOT, debounced, feed back to the controller' },
+    ],
+    technology: ['Arduino / ESP32', 'DC geared motors', 'L298N / BTS7960 driver', 'Limit switches', 'Relay + pump', 'RTC (optional)'],
+    implementation: [
+      'Power on, then home: if LS-TOP is not pressed, run both motors up until it closes. The wiper now has a known start position.',
+      'On trigger, switch the pump on and run both motors forward so the wiper sprays and wipes down the panel.',
+      'When LS-BOT closes, stop both motors and the pump at once, then pause 0.5–1 s before reversing.',
+      'Run both motors in reverse so the wiper squeegees the remaining water off, then stop when LS-TOP closes and park the wiper off the cells.',
+      'Log the cycle count and return to waiting for the next trigger.',
+      'Safety: stroke timeout of normal time plus 30%, motor overcurrent cut-off, stop if both switches are pressed together, switch debounce (about 20 ms) and mechanical hard stops as a backup.',
+    ],
+    results: 'Design stage only. No build, testing or field results are claimed.',
+    challenges: [
+      'Two separate DC motors sharing one command still run at different real speeds because of load, friction and tolerance, so one side can lag and the wiper skews over many cycles',
+      'Fixed-schedule cleaning wastes water and adds wear on days with no dust',
+    ],
+    future: [
+      'Use two steppers on one driver signal, or one motor with a belt driving both screws, to keep the two sides synchronized',
+      'Clean on demand: compare panel output with expected output (irradiance sensor or inverter data) and clean only when the loss crosses a threshold, cutting water use and running cost for solar-farm users',
+      'Fault indication with an LED or buzzer, and cycle logging',
+    ],
+  },
 ]
 
 export const getProject = (slug) => projects.find((p) => p.slug === slug)

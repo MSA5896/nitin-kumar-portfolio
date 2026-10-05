@@ -9,7 +9,6 @@ import Reveal from '../components/ui/Reveal'
 import SmartImage from '../components/ui/SmartImage'
 import FlowDiagram from '../components/diagrams/FlowDiagram'
 import NotFound from './NotFound'
-import { sectionHref, useSectionNav } from '../hooks/useSectionNav'
 
 function Block({ title, children }) {
   return (
@@ -48,7 +47,6 @@ function ChipGrid({ items }) {
 export default function ProjectDetail() {
   const { slug } = useParams()
   const project = getProject(slug)
-  const goTo = useSectionNav()
   usePageMeta(project ? { title: project.title, description: project.summary } : { title: 'Project not found' })
 
   if (!project) return <NotFound />
@@ -238,9 +236,7 @@ export default function ProjectDetail() {
 
           {/* Footer navigation */}
           <div className="mt-6 flex flex-col gap-4 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
-            <Button href={sectionHref('contact')} onClick={(e) => goTo('contact', e)}>
-              Discuss a similar project
-            </Button>
+            <span />
             <Link to={`/projects/${next.slug}`} className="group inline-flex items-center gap-2 text-right font-medium text-muted hover:text-primary">
               <span>
                 <span className="block text-xs uppercase tracking-wider text-subtle">Next project</span>

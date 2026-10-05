@@ -127,7 +127,7 @@ export default function ContactForm({ onSubmitted }) {
 
     setStatus({
       type: 'info',
-      message: 'Online messages are not enabled yet. Please contact me on LinkedIn, and include the details above.',
+      message: 'Online messages are not enabled yet. Please contact me on LinkedIn (link in the top bar), and include the details above.',
     })
   }
 
@@ -235,7 +235,7 @@ export default function ContactForm({ onSubmitted }) {
         <p className="text-xs text-subtle">
           {mode === 'endpoint' && 'Your details go to my inbox through a third-party form service (FormSubmit) and are used only to reply to you.'}
           {mode === 'mailto' && 'Submitting opens your email app with the message ready to send.'}
-          {mode === 'none' && 'Prefer LinkedIn? Use the link alongside this form.'}
+          {mode === 'none' && 'Prefer LinkedIn? Use the link in the top bar.'}
         </p>
         <Button type="submit" size="lg" disabled={status.type === 'sending'}>
           <Send size={17} aria-hidden="true" /> {status.type === 'sending' ? 'Sending…' : 'Send & show contact details'}

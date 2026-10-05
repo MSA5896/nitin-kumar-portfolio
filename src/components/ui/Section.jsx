@@ -3,12 +3,12 @@ import Reveal from './Reveal'
 export function SectionHeader({ eyebrow, title, description, align = 'left', id }) {
   const center = align === 'center'
   return (
-    <Reveal className={`mb-10 md:mb-12 max-w-3xl ${center ? 'mx-auto text-center' : ''}`}>
-      {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+    <Reveal className={`mb-6 md:mb-8 max-w-4xl ${center ? 'mx-auto text-center' : ''}`}>
+      {eyebrow && <p className="eyebrow mb-2">{eyebrow}</p>}
       <h2 id={id} className="text-3xl md:text-4xl font-bold tracking-tight text-fg text-balance">
         {title}
       </h2>
-      {description && <p className="mt-4 text-lg text-muted text-pretty">{description}</p>}
+      {description && <p className="mt-2 text-lg text-muted text-pretty">{description}</p>}
     </Reveal>
   )
 }
@@ -20,7 +20,7 @@ export default function Section({ id, eyebrow, title, description, align, classN
     <section
       id={id}
       aria-labelledby={title ? headingId : undefined}
-      className={`py-20 md:py-28 ${tinted ? 'bg-surface-2/50 border-y border-line' : ''} ${className}`}
+      className={`py-12 md:py-16 ${tinted ? 'bg-surface-2/50 border-y border-line' : ''} ${className}`}
     >
       <div className="container-page">
         {title && <SectionHeader id={headingId} eyebrow={eyebrow} title={title} description={description} align={align} />}

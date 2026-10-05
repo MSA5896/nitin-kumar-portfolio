@@ -1,14 +1,15 @@
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { useState } from 'react'
+import { CheckCircle2, Maximize2 } from 'lucide-react'
 import Section from '../ui/Section'
 import Reveal from '../ui/Reveal'
-import Button from '../ui/Button'
+import Slider from '../ui/Slider'
+import Modal from '../ui/Modal'
 import { Icon } from '../ui/icons'
 import { services, workProcess } from '../../data/services'
 import { profile } from '../../data/profile'
-import { sectionHref, useSectionNav } from '../../hooks/useSectionNav'
 
 export default function Services() {
-  const goTo = useSectionNav()
+  const [active, setActive] = useState(null)
 
   return (
     <Section
@@ -18,33 +19,44 @@ export default function Services() {
       description="Practical automation, data and IoT work for engineering, manufacturing and small-business teams. Scoped clearly and delivered as working tools."
       tinted
     >
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {services.map((service, i) => (
-          <Reveal
-            as="li"
+      <Slider label="services" slideClass="basis-[72%] sm:basis-[40%] lg:basis-[30%] xl:basis-[23.5%]">
+        {services.map((service) => (
+          <button
             key={service.title}
-            delay={(i % 4) * 70}
-            className="group flex flex-col rounded-xl border border-line bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
+            type="button"
+            onClick={() => setActive(service)}
+            className="group flex h-full w-full flex-col rounded-xl border border-line bg-surface p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
           >
             <span className="mb-4 grid h-11 w-11 place-items-center rounded-lg bg-primary-soft text-primary transition-colors group-hover:bg-primary group-hover:text-primary-fg">
               <Icon name={service.icon} size={22} />
             </span>
             <h3 className="text-lg font-semibold text-fg">{service.title}</h3>
             <p className="mt-2 text-[0.95rem] text-muted">{service.description}</p>
-            <ul className="mt-4 space-y-1.5 border-t border-line pt-4">
-              {service.examples.map((ex) => (
-                <li key={ex} className="flex items-start gap-2 text-sm text-muted">
-                  <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
+            <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-primary">
+              View details <Maximize2 size={14} aria-hidden="true" />
+            </span>
+          </button>
+        ))}
+      </Slider>
+
+      <Modal open={!!active} onClose={() => setActive(null)} title={active?.title}>
+        {active && (
+          <div className="space-y-5">
+            <p className="text-lg text-muted">{active.description}</p>
+            <ul className="space-y-2">
+              {active.examples.map((ex) => (
+                <li key={ex} className="flex items-start gap-2 text-muted">
+                  <CheckCircle2 size={16} className="mt-1 shrink-0 text-primary" aria-hidden="true" />
                   {ex}
                 </li>
               ))}
             </ul>
-          </Reveal>
-        ))}
-      </ul>
+          </div>
+        )}
+      </Modal>
 
       {/* How engagements work */}
-      <Reveal className="mt-14">
+      <Reveal className="mt-8">
         <h3 className="mb-5 text-xl font-semibold text-fg">How a project works</h3>
         <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {workProcess.map((step) => (
@@ -58,15 +70,10 @@ export default function Services() {
       </Reveal>
 
       {/* Engagement types + CTA */}
-      <Reveal className="mt-14 grid items-center gap-8 rounded-2xl border border-line bg-surface p-6 md:p-10 lg:grid-cols-[1.3fr_1fr]">
+      <Reveal className="mt-8 grid items-center gap-8 rounded-2xl border border-line bg-surface p-6 md:p-10 lg:grid-cols-[1.3fr_1fr]">
         <div>
           <p className="text-2xl font-bold text-fg md:text-3xl">Have a repetitive technical or data problem?</p>
           <p className="mt-2 text-lg text-muted">Let&apos;s build a practical solution.</p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button href={sectionHref('contact')} onClick={(e) => goTo('contact', e)}>
-              Discuss your project <ArrowRight size={18} aria-hidden="true" />
-            </Button>
-          </div>
         </div>
         <div>
           <p className="mb-3 text-sm font-semibold text-fg">Available for</p>

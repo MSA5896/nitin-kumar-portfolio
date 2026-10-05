@@ -1,10 +1,6 @@
-import { ArrowRight, Download, MapPin } from 'lucide-react'
-import Button from '../ui/Button'
+import { MapPin } from 'lucide-react'
 import { profile } from '../../data/profile'
 import { site } from '../../config/site'
-import { asset } from '../../utils/config'
-import { sectionHref, useSectionNav } from '../../hooks/useSectionNav'
-import { useResumeAvailable } from '../../hooks/useResumeAvailable'
 
 /** Decorative technical signal trace — subtle, no stock imagery. */
 function SignalTrace() {
@@ -27,8 +23,6 @@ function SignalTrace() {
 }
 
 export default function Hero() {
-  const goTo = useSectionNav()
-  const resumeAvailable = useResumeAvailable()
 
   return (
     <section className="relative overflow-hidden border-b border-line" aria-labelledby="hero-title">
@@ -39,46 +33,31 @@ export default function Hero() {
       />
       <SignalTrace />
 
-      <div className="container-page relative py-20 md:py-28 lg:py-32">
-        <div className="max-w-4xl">
-          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-3 py-1.5 text-sm text-muted">
-            <span className="pulse-dot h-2 w-2 rounded-full bg-success" aria-hidden="true" />
-            {site.availability}
+      <div className="container-page relative py-8 md:py-10 lg:py-12">
+        <div className="max-w-5xl">
+          <p className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted">
+            <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-3 py-1">
+              <span className="pulse-dot h-2 w-2 rounded-full bg-success" aria-hidden="true" />
+              {site.availability}
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-subtle">
+              <MapPin size={15} aria-hidden="true" /> {site.location}
+            </span>
           </p>
 
-          <h1 id="hero-title" className="text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-fg sm:text-6xl lg:text-7xl">
+          <h1 id="hero-title" className="text-4xl font-extrabold leading-[1.05] tracking-tight text-fg sm:text-5xl lg:text-6xl">
             {profile.name.toUpperCase()}
           </h1>
-          <p className="mt-5 text-xl font-semibold tracking-wide text-fg sm:text-2xl">{profile.headline.toUpperCase()}</p>
-          <p className="mt-2 font-mono text-sm tracking-wider text-primary sm:text-base">
-            AI AUTOMATION <span className="text-subtle">|</span> DATA <span className="text-subtle">|</span> IoT{' '}
-            <span className="text-subtle">|</span> ROBOTICS
+          <p className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+            <span className="text-lg font-semibold tracking-wide text-fg sm:text-xl">{profile.headline.toUpperCase()}</span>
+            <span className="font-mono text-sm tracking-wider text-primary">
+              AI AUTOMATION <span className="text-subtle">|</span> DATA <span className="text-subtle">|</span> IoT{' '}
+              <span className="text-subtle">|</span> ROBOTICS
+            </span>
           </p>
 
-          <p className="mt-8 max-w-2xl text-xl leading-relaxed text-fg/90 text-pretty md:text-2xl">{profile.heroStatement}</p>
-          <p className="mt-4 max-w-2xl text-muted text-pretty">{profile.heroSupport}</p>
-
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Button href={sectionHref('projects')} onClick={(e) => goTo('projects', e)} size="lg">
-              View Projects <ArrowRight size={18} aria-hidden="true" />
-            </Button>
-            <Button href={sectionHref('contact')} onClick={(e) => goTo('contact', e)} variant="secondary" size="lg">
-              Hire Me
-            </Button>
-            {resumeAvailable ? (
-              <Button href={asset(site.resume)} variant="ghost" size="lg" download external={false}>
-                <Download size={18} aria-hidden="true" /> Download Resume
-              </Button>
-            ) : (
-              <Button href={sectionHref('resume')} onClick={(e) => goTo('resume', e)} variant="ghost" size="lg">
-                <Download size={18} aria-hidden="true" /> Resume
-              </Button>
-            )}
-          </div>
-
-          <p className="mt-10 inline-flex items-center gap-2 text-sm text-subtle">
-            <MapPin size={16} aria-hidden="true" /> {site.location}
-          </p>
+          <p className="mt-3 max-w-4xl text-lg leading-snug text-fg/90 text-pretty md:text-xl">{profile.heroStatement}</p>
+          <p className="mt-2 max-w-4xl text-[0.95rem] text-muted text-pretty">{profile.heroSupport}</p>
         </div>
       </div>
     </section>

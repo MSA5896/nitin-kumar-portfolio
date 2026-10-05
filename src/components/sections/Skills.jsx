@@ -1,5 +1,5 @@
 import Section from '../ui/Section'
-import Reveal from '../ui/Reveal'
+import Slider from '../ui/Slider'
 import { Icon } from '../ui/icons'
 import { levelLabels, proficiencyTiers, skillCategories } from '../../data/skills'
 
@@ -28,49 +28,51 @@ export default function Skills() {
       description="Grouped by how I actually use them, from daily professional work to areas I am actively developing."
     >
       {/* Proficiency tiers */}
-      <div className="grid gap-4 md:grid-cols-3">
-        {proficiencyTiers.map((tier, i) => (
-          <Reveal key={tier.id} delay={i * 90} className="rounded-xl border border-line bg-surface p-5">
+      <Slider label="proficiency levels" slideClass="basis-[85%] sm:basis-[48%] lg:basis-[32%]">
+        {proficiencyTiers.map((tier) => (
+          <div key={tier.id} className="h-full rounded-xl border border-line bg-surface p-3.5">
             <div className="flex items-center gap-2">
               <span className={`h-2.5 w-2.5 rounded-full ${TIER_STYLES[tier.id].dot}`} aria-hidden="true" />
               <h3 className="font-semibold text-fg">{tier.title}</h3>
             </div>
-            <p className="mt-1 text-sm text-subtle">{tier.description}</p>
-            <ul className="mt-4 flex flex-wrap gap-2">
+            <p className="mt-0.5 text-xs text-subtle">{tier.description}</p>
+            <ul className="mt-2.5 flex flex-wrap gap-1.5">
               {tier.skills.map((s) => (
-                <li key={s} className={`rounded-md border px-2.5 py-1 text-sm font-medium ${TIER_STYLES[tier.id].chip}`}>
+                <li key={s} className={`rounded-md border px-2 py-0.5 text-xs font-medium ${TIER_STYLES[tier.id].chip}`}>
                   {s}
                 </li>
               ))}
             </ul>
-          </Reveal>
+          </div>
         ))}
-      </div>
+      </Slider>
 
       {/* Detailed categories */}
-      <div className="mt-12 grid gap-5 lg:grid-cols-2">
-        {skillCategories.map((cat, i) => (
-          <Reveal key={cat.id} delay={(i % 2) * 90} className={`rounded-xl border border-line bg-surface p-6 ${cat.id === 'quality' ? 'lg:col-span-2' : ''}`}>
-            <div className="mb-4 flex items-center gap-3">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary-soft text-primary">
-                <Icon name={cat.icon} size={18} />
+      <div className="mt-3">
+      <Slider label="skill categories" slideClass="basis-[88%] sm:basis-[62%] lg:basis-[40%]">
+        {skillCategories.map((cat) => (
+          <div key={cat.id} className="h-full rounded-xl border border-line bg-surface p-3.5">
+            <div className="mb-2 flex items-center gap-2">
+              <span className="grid h-7 w-7 place-items-center rounded-md bg-primary-soft text-primary">
+                <Icon name={cat.icon} size={15} />
               </span>
-              <h3 className="text-lg font-semibold text-fg">{cat.title}</h3>
+              <h3 className="text-base font-semibold text-fg">{cat.title}</h3>
             </div>
-            {cat.note && <p className="-mt-1 mb-4 text-sm text-subtle">{cat.note}</p>}
-            <ul className="flex flex-wrap gap-2">
+            {cat.note && <p className="mb-2 text-xs text-subtle">{cat.note}</p>}
+            <ul className="flex flex-wrap gap-1.5">
               {cat.items.map((item) => (
-                <li key={item.name} className="inline-flex items-center gap-2 rounded-md border border-line bg-surface-2 px-2.5 py-1 text-sm text-fg">
+                <li key={item.name} className="inline-flex items-center gap-1.5 rounded-md border border-line bg-surface-2 px-2 py-0.5 text-xs text-fg">
                   <LevelDot level={item.level} />
                   {item.name}
                 </li>
               ))}
             </ul>
-          </Reveal>
+          </div>
         ))}
+      </Slider>
       </div>
 
-      <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-subtle" aria-label="Legend">
+      <ul className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-xs text-subtle" aria-label="Legend">
         {Object.entries(levelLabels).map(([key, label]) => (
           <li key={key} className="inline-flex items-center gap-2">
             <span className={`h-2 w-2 rounded-full ${TIER_STYLES[key].dot}`} aria-hidden="true" />

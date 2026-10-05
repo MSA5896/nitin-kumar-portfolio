@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { site } from '../../config/site'
 import { isConfigured } from '../../utils/config'
 import { sectionHref, useSectionNav } from '../../hooks/useSectionNav'
-import { GithubIcon, LinkedinIcon } from '../ui/icons'
+import { GithubIcon } from '../ui/icons'
 
 const QUICK_LINKS = [
   { id: 'projects', label: 'Projects' },
@@ -48,9 +48,6 @@ export default function Footer() {
         <div>
           <p className="mb-3 text-sm font-semibold text-fg">Connect</p>
           <div className="flex gap-2">
-            <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="LinkedIn profile (opens in a new tab)">
-              <LinkedinIcon />
-            </a>
             {isConfigured(site.github) && (
               <a href={site.github} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="GitHub profile (opens in a new tab)">
                 <GithubIcon />

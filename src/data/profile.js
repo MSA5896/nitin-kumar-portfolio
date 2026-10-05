@@ -8,7 +8,7 @@ export const profile = {
   heroStatement:
     'Engineering experience meets AI-driven automation, data analytics and intelligent IoT solutions.',
   heroSupport:
-    'Quality engineer with 9+ years in medical-device and precision manufacturing and an M.Tech in Applied Mechatronics & Robotics from IIT Bhilai. I build practical Python, data and IoT tools that remove repetitive work and make engineering data easier to act on.',
+    'Quality engineer with 9+ years in medical-device and precision manufacturing and currently pursuing an M.Tech in Applied Mechatronics & Robotics at IIT Bhilai (2025 – 2027). I build practical Python, data and IoT tools that remove repetitive work and make engineering data easier to act on.',
 
   summary: [
     'I am an engineering professional with experience in medical-device manufacturing, quality inspection, industrial processes, automation, IoT and robotics.',
@@ -28,7 +28,7 @@ export const profile = {
     { label: 'Previously', value: 'Senior Quality Engineer, Allied Medical Limited, Bhiwadi (2020 – 2025)' },
     { label: 'Earlier', value: 'QC Inspector, Allied Health Technology Ltd, Gurugram (2017 – 2020)' },
     { label: 'Industry', value: 'Medical-device manufacturing' },
-    { label: 'Education', value: 'M.Tech, Applied Mechatronics & Robotics, IIT Bhilai · B.Tech, Mechanical Engineering, AKTU' },
+    { label: 'Education', value: 'M.Tech, Applied Mechatronics & Robotics, IIT Bhilai (2025 – 2027) · B.Tech, Mechanical Engineering, AKTU (2013 – 2017)' },
     { label: 'Qualification', value: 'GATE 2024 qualified, Engineering Sciences (XE)' },
     { label: 'Based in', value: 'Gurugram, Haryana, India' },
   ],
@@ -37,7 +37,7 @@ export const profile = {
   stats: [
     { icon: 'factory', title: '9+ Years in Quality & Manufacturing', detail: 'Medical-device and precision manufacturing since 2017, in quality-system and compliance-oriented environments' },
     { icon: 'shield', title: 'Senior Quality Engineer', detail: 'ISO 13485, validation (IQ/OQ/PQ), supplier quality, CAPA and audits' },
-    { icon: 'graduation', title: 'M.Tech, IIT Bhilai', detail: 'Applied Mechatronics & Robotics · B.Tech Mechanical (AKTU) · GATE 2024 (XE) qualified' },
+    { icon: 'graduation', title: 'M.Tech, IIT Bhilai (2025 – 2027)', detail: 'Applied Mechatronics & Robotics · B.Tech Mechanical (AKTU) · GATE 2024 (XE) qualified' },
     { icon: 'cpu', title: 'AI · IoT · Robotics', detail: 'Active build areas: Python, data automation, sensors and ROS2' },
   ],
 

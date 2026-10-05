@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, Moon, Sun, X } from 'lucide-react'
+import { Download, Menu, Moon, Sun, X } from 'lucide-react'
 import { sectionHref, useActiveSection, useSectionNav } from '../../hooks/useSectionNav'
+import { LinkedinIcon } from '../ui/icons'
 import { useTheme } from '../../hooks/useTheme'
 import { site } from '../../config/site'
+import { asset } from '../../utils/config'
+import { hasResume } from '../../hooks/useResumeAvailable'
 
 export const NAV_SECTIONS = [
   { id: 'about', label: 'About' },
@@ -13,7 +16,7 @@ export const NAV_SECTIONS = [
   { id: 'skills', label: 'Skills' },
 ]
 // Observe every home section so the indicator clears when you scroll past the nav items.
-const SECTION_IDS = ['about', 'services', 'featured', 'projects', 'experience', 'quality-work', 'skills', 'why', 'code', 'certifications', 'notes', 'resume', 'contact']
+const SECTION_IDS = ['about', 'services', 'projects', 'experience', 'quality-work', 'skills', 'why', 'code', 'certifications', 'notes', 'contact']
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -112,6 +115,27 @@ export default function Navbar() {
           >
             {theme === 'dark' ? <Sun size={18} aria-hidden="true" /> : <Moon size={18} aria-hidden="true" />}
           </button>
+          {/* A button (not an href) so the raw profile URL is not exposed in the page or status bar */}
+          <button
+            type="button"
+            onClick={() => window.open(site.linkedin, '_blank', 'noopener,noreferrer')}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-2 text-[0.94rem] font-semibold text-fg transition-colors hover:border-primary hover:text-primary"
+            aria-label="Visit my LinkedIn profile (opens in a new tab)"
+          >
+            <LinkedinIcon size={16} />
+            <span className="hidden md:inline">Visit My Profile</span>
+          </button>
+          {hasResume && (
+            <a
+              href={asset(site.resume)}
+              download="Nitin_Kumar_Resume.pdf"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-primary px-3 py-2 text-[0.94rem] font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-fg"
+            >
+              <Download size={16} aria-hidden="true" />
+              <span className="hidden sm:inline">Download Resume</span>
+              <span className="sm:hidden">Resume</span>
+            </a>
+          )}
           <a
             href={sectionHref('contact')}
             onClick={handleSection('contact')}

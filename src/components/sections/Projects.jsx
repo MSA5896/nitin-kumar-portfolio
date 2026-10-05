@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Search, X } from 'lucide-react'
 import Section from '../ui/Section'
+import Slider from '../ui/Slider'
 import ProjectCard from './ProjectCard'
 import { projectFilters, projects } from '../../data/projects'
 import { matchesQuery } from '../../utils/search'
@@ -68,13 +69,11 @@ export default function Projects() {
       </p>
 
       {visible.length > 0 ? (
-        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <Slider key={`${filter}-${query}`} label="projects">
           {visible.map((project) => (
-            <li key={project.slug} className="animate-[fadeIn_0.35s_ease]">
-              <ProjectCard project={project} />
-            </li>
+            <ProjectCard key={project.slug} project={project} />
           ))}
-        </ul>
+        </Slider>
       ) : (
         <div className="rounded-xl border border-dashed border-line-strong p-10 text-center text-muted">
           No projects match this filter.{' '}

@@ -17,6 +17,16 @@
  */
 export const certifications = [
   {
+    name: 'Entrepreneurship Development Programme (EDP) & Letter of Appreciation',
+    issuer: 'Institute For Industrial Development (IID), Samadhan, Ministry of MSME, Govt. of India',
+    year: 'Completed Jul 2026 · Letter dated Oct 2026',
+    credentialId: 'IID9442289',
+    skills: 'Entrepreneurship, business development, starting and running a venture',
+    credentialUrl: '',
+    image: '/images/certificates/iid-edp-certificate.jpg',
+    extraImages: [{ label: 'Letter of Appreciation', src: '/images/certificates/iid-edp-appreciation-letter.jpg' }],
+  },
+  {
     name: 'IoT and Robotics',
     issuer: 'Launched Global',
     year: 'Issued Jul 2026',

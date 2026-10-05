@@ -1,88 +1,52 @@
-import { Award, Briefcase, CheckCircle2, GraduationCap, MapPin } from 'lucide-react'
+import { useState } from 'react'
+import { Award, Briefcase, CheckCircle2, GraduationCap, MapPin, Maximize2 } from 'lucide-react'
 import Section from '../ui/Section'
 import Reveal from '../ui/Reveal'
+import Slider from '../ui/Slider'
+import Modal from '../ui/Modal'
 import Timeline from './Timeline'
 import { education, examinations, experience } from '../../data/experience'
 
 export default function Experience() {
+  const [active, setActive] = useState(null)
   return (
     <Section
       id="experience"
       eyebrow="Experience"
       title="Professional background"
-      description="Quality engineering in medical-device and precision manufacturing since 2017, built on a B.Tech in mechanical engineering and an M.Tech in mechatronics and robotics."
+      description="Quality engineering in medical-device and precision manufacturing since 2017, built on a B.Tech in mechanical engineering and a current M.Tech in mechatronics and robotics."
       tinted
     >
       <div className="grid gap-10 lg:grid-cols-[1.35fr_1fr]">
-        <div className="space-y-6">
-          {experience.map((job) => (
-            <Reveal key={job.company} as="article" className="rounded-2xl border border-line bg-surface p-6 md:p-8">
-              <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0 space-y-6">
+          <Slider label="jobs" slideClass="basis-[80%] sm:basis-[52%]">
+            {experience.map((job) => (
+              <button
+                key={job.company}
+                type="button"
+                onClick={() => setActive(job)}
+                className="group flex h-full w-full flex-col rounded-2xl border border-line bg-surface p-6 text-left transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
+              >
                 <div className="flex gap-4">
                   <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary">
                     <Briefcase size={22} aria-hidden="true" />
                   </span>
                   <div>
-                    <h3 className="text-xl font-semibold text-fg">{job.role}</h3>
+                    <h3 className="text-lg font-semibold text-fg">{job.role}</h3>
                     <p className="font-medium text-muted">{job.company}</p>
-                    <p className="mt-1 inline-flex items-center gap-1.5 text-sm text-subtle">
-                      <MapPin size={14} aria-hidden="true" /> {job.location}
+                    <p className="mt-1 font-mono text-xs text-subtle">
+                      {job.period}
+                      {job.duration && ` · ${job.duration}`}
                     </p>
                   </div>
                 </div>
-                <span className={`rounded-full px-3 py-1 font-mono text-xs ${job.current ? 'bg-success-soft text-success' : 'bg-surface-2 text-muted'}`}>
-                  {job.period}
-                  {job.duration && ` · ${job.duration}`}
+                <p className="mt-4 line-clamp-4 text-sm text-muted">{job.summary}</p>
+                <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-primary">
+                  View full details <Maximize2 size={14} aria-hidden="true" />
                 </span>
-              </div>
-              <p className="mt-5 text-muted">{job.summary}</p>
-
-              {job.achievements && (
-                <div className="mt-6 rounded-xl border border-line bg-surface-2 p-4">
-                  <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-fg">
-                    <Award size={16} className="text-primary" aria-hidden="true" /> Key achievements
-                  </h4>
-                  <ul className="space-y-2">
-                    {job.achievements.map((item) => (
-                      <li key={item} className="flex gap-2.5 text-sm text-muted">
-                        <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <div className={`mt-6 grid gap-6 ${job.groups.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
-                {job.groups.map((group) => (
-                  <div key={group.title}>
-                    <h4 className="mb-2 text-sm font-semibold text-fg">{group.title}</h4>
-                    <ul className="space-y-1.5">
-                      {group.items.map((item) => (
-                        <li key={item} className="flex gap-2 text-sm text-muted">
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-
-              {job.products && (
-                <div className="mt-6 border-t border-line pt-5">
-                  <h4 className="mb-2 text-sm font-semibold text-fg">Products managed</h4>
-                  <ul className="flex flex-wrap gap-2">
-                    {job.products.map((pr) => (
-                      <li key={pr} className="rounded-full border border-line bg-surface-2 px-3 py-1 text-sm text-muted">
-                        {pr}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </Reveal>
-          ))}
+              </button>
+            ))}
+          </Slider>
 
           <Reveal as="article" className="rounded-2xl border border-line bg-surface p-6 md:p-8">
             <div className="mb-6 flex items-center gap-4">
@@ -141,6 +105,63 @@ export default function Experience() {
           <Timeline />
         </div>
       </div>
+
+      <Modal open={!!active} onClose={() => setActive(null)} title={active ? `${active.role} · ${active.company}` : ''}>
+        {active && (
+          <div className="min-w-0 space-y-6">
+            <p className="inline-flex items-center gap-1.5 text-sm text-subtle">
+              <MapPin size={14} aria-hidden="true" /> {active.location} · {active.period}
+              {active.duration && ` · ${active.duration}`}
+            </p>
+      <p className="text-muted">{active.summary}</p>
+
+      {active.achievements && (
+        <div className="mt-6 rounded-xl border border-line bg-surface-2 p-4">
+          <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-fg">
+            <Award size={16} className="text-primary" aria-hidden="true" /> Key achievements
+          </h4>
+          <ul className="space-y-2">
+            {active.achievements.map((item) => (
+              <li key={item} className="flex gap-2.5 text-sm text-muted">
+                <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div className={`mt-6 grid gap-6 ${active.groups.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
+        {active.groups.map((group) => (
+          <div key={group.title}>
+            <h4 className="mb-2 text-sm font-semibold text-fg">{group.title}</h4>
+            <ul className="space-y-1.5">
+              {group.items.map((item) => (
+                <li key={item} className="flex gap-2 text-sm text-muted">
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {active.products && (
+        <div className="mt-6 border-t border-line pt-5">
+          <h4 className="mb-2 text-sm font-semibold text-fg">Products managed</h4>
+          <ul className="flex flex-wrap gap-2">
+            {active.products.map((pr) => (
+              <li key={pr} className="rounded-full border border-line bg-surface-2 px-3 py-1 text-sm text-muted">
+                {pr}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+          </div>
+        )}
+      </Modal>
     </Section>
   )
 }

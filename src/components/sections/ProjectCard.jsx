@@ -9,14 +9,17 @@ const linkClass =
 
 /** Project card. GitHub / Live Demo buttons render only when links exist. */
 export default function ProjectCard({ project }) {
-  const { slug, title, category, summary, tags, status, links = {}, image, imageIsIllustration } = project
+  const { slug, featured, title, category, summary, tags, status, links = {}, image, imageIsIllustration } = project
 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-card">
       <SmartImage src={image} alt={imageIsIllustration ? `${title}: illustration` : `${title} preview`} label={category} illustration={imageIsIllustration} className="rounded-none border-0 border-b" />
       <div className="flex flex-1 flex-col p-5">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-          <span className="font-mono text-xs uppercase tracking-wider text-subtle">{category}</span>
+          <span className="font-mono text-xs uppercase tracking-wider text-subtle">
+            {featured && <span className="mr-2 rounded bg-primary px-1.5 py-0.5 text-[0.65rem] font-semibold text-primary-fg">FEATURED</span>}
+            {category}
+          </span>
           <StatusBadge status={status} />
         </div>
         <h3 className="text-lg font-semibold leading-snug text-fg">
